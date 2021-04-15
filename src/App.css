@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landing{
+  height: 100vh;
+  width: 100vw;
+  background: red;
+  position: fixed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbarContainer{
+  height: 100px;
+  width: 100vw;
+  background: cornflowerblue;
+  /* sticky */
+  position: sticky;
+  top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+}
+.footer{
+  height: 300px;
+  width: 100vw;
+  background: cornflowerblue;
 }
 
-.App-link {
-  color: #61dafb;
+.sectionBody{
+  height: calc( 100vh - 100px );
+  min-height: 700px;
+  width: 100vw;
+  background: seagreen;
+  border-bottom: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about{
+  height: calc( 100vh - 400px );
+  min-height: 700px;
+  width: 100vw;
+  background: indianred;
 }
+
+.magazine{
+  width: 100vw;
+  min-height: 700px;
+  background: lightgreen;
+}
+
+.carLogoContainer{
+  display: grid;
+  grid-template-columns: repeat(8, 100px) ;
+}
+.carLogo{
+  width: 80px;
+  height: 100px;
+  margin: 10px;
+  background: tomato;
+}
+.carIcon{
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+
+
