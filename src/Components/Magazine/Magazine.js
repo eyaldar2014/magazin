@@ -1,12 +1,16 @@
 // import react from 'react'
 
-const Magazine =(props)=>{
+
+
+const Magazine = (props) => {
 
 
 
     return <>
         <div className={'magazine'}>
-        magazine
+            <div className={'magazineContainer'}>
+                magazinemagazinemagazinemagazinemagazinemagazine
+        </div>
         </div>
 
     </>

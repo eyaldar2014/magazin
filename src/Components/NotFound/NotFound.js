@@ -19,7 +19,7 @@ const NotFound = (props) => {
         </div>
     </> : <>
       <div>
-        <Redirect to="/home" />
+        <Redirect to="/" />
       </div>
     </>}
 

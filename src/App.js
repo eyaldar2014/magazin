@@ -110,8 +110,8 @@ function App() {
                     <Route exact path="/form">
                         <Form />
                     </Route>
-                    <Route exact path="/home">
-                        <Home />
+                    <Route exact path="/">
+                    <Home />
                     </Route>
                     <Route path="/">
                         <NotFound />

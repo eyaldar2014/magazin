@@ -347,11 +347,12 @@ display: flex;
 
 /* magazine */
 .magazine{
-  width: 100vw;
+  min-width: 1000px;
   min-height: 700px;
-  background: lightgreen;
 }
-
+.magazineContainer{
+  padding: 100px;
+}
 
 
 
