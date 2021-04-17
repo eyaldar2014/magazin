@@ -3,25 +3,61 @@
   padding: 0;
   margin: 0;
 }
-
 .white{
   color: white
 }
 
-/* landing Spinner */
-.landing{
-  min-height: 1000px;
-  background: red;
+.bgLine{
+  position: relative;
+  z-index: 1;
+}
+.bgLine:before {
+  border-top: 2px solid #dfdfdf;
+  content:"";
+  margin: 0 auto; 
+  position: absolute;
+  top: 50%; left: 0; right: 0; bottom: 0;
+  max-width: 95%;
+  /* maybe media query later */
+  z-index: -1;
+}
+.bgLine span { 
+  background: #fff; 
+  padding: 0 15px; 
 }
 
-
-
-
-
-
-
-
-
+/* landing Spinner */
+.landing{
+  min-height: 600px;
+  /* background: white; */
+}
+.spinner{
+  width: 200px;
+  height: 130px;
+}
+.leftSpinner{
+  background: url('https://wallpapercave.com/wp/wp5751029.jpg') no-repeat center center/ cover;
+  animation: leftSpinner 2s ;
+  position: absolute;
+  top: 200px;
+}
+@keyframes leftSpinner {
+  from {transform: translateX(100vw);}
+  to {
+    transform: translateX(50px) scaleX(-1);
+  }
+}
+.rightSpinner{
+  background: url('https://wallpapercave.com/wp/wp5751029.jpg') no-repeat center center/ cover;
+  transform: scaleX(-1) ;
+  animation: rightSpinner 2s ;
+  position: absolute;
+  top: 200px;
+}
+@keyframes rightSpinner {
+  from {transform: translateX();}
+  to {transform: translateX(calc(100vw - 250px));}
+}
 
 /* navbar */
 .navbarContainer{
@@ -48,8 +84,6 @@
   color: black;
 }
 .footerContainer{
-  /* height: 300px; */
-  /* width: 100vw; */
   min-width: 1000px;
   background: rgb(52, 63, 82);
   padding: 0 200px;
@@ -90,18 +124,23 @@ display: flex;
   padding-bottom: 20px;
 }
 
+/* Not Found */
+.notFound{
+  min-height: 600px;
+  /* background: white; */
+}
+
 /* about */
 .aboutContainer{
   display: flex;
   min-width: 1000px;
   padding: 0 200px;
   min-height: 900px;
+  /* background: aquamarine; */
 }
 .about{
   padding: 130px 100px;
   width: 50%;
-  /* border: 1px solid black; */
-  /* background: indianred; */
 }
 .about h1{
   text-align: center;
@@ -113,10 +152,47 @@ display: flex;
   max-height: 500px;
 }
 
+/* contact */
+.contactContainer{
+  min-height: 600px;
+  min-width: 1000px;
+  padding: 0 200px;
+  /* background: aquamarine; */
+}
+.contact{
+  padding: 100px;
+}
+/* .contactHeader{} */
+.contactBgImg{
+  padding: 50px 0 150px 0;
+  background: url("https://images.unsplash.com/photo-1471479917193-f00955256257?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2048&q=80") no-repeat center center/ cover;
+
+}
+.contact h1{
+  text-align: center;
+}
 
 
 
-/* sections */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* engine sections */
 .sectionBody{
   height: calc( 100vh - 100px );
   min-height: 700px;
@@ -172,7 +248,7 @@ display: flex;
     min-height: 600px;
   }
 }
-@media only screen and (max-device-width: 1200px) {
+@media only screen and (min-device-width: 801px) and (max-device-width: 1200px) {
   .aboutContainer{
     flex-direction: column;
   }
@@ -186,5 +262,24 @@ display: flex;
     margin-bottom: 40px;
     width: 100%;
     height: 400px;
+  }
+}
+@media only screen and (min-device-width: 1px) and (max-device-width: 800px) {
+  .aboutContainer{
+    flex-direction: column;
+  }
+  .about{
+    padding: 30px 100px;
+    width: 100%;
+    min-height: 0px;
+  }
+  .aboutImg{
+    margin-top: 10px;
+    margin-bottom: 40px;
+    width: 100%;
+    height: 400px;
+  }
+  .rightSpinner{
+    top: 100px;
   }
 }

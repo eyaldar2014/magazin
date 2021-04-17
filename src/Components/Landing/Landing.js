@@ -1,4 +1,4 @@
-import react from 'react'
+// import react from 'react'
 
 const Landing =()=>{
 
@@ -6,7 +6,11 @@ const Landing =()=>{
 
     return <>
         <div className={'landing'}>
-            landind
+            
+            <div className='spinner leftSpinner'></div>
+
+            <div className='spinner rightSpinner'></div>
+
         </div>
 
 

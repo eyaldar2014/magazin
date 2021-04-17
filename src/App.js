@@ -2,7 +2,7 @@ import './App.css';
 
 import react from 'react'
 import axios from "axios";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import symbols from './Components/ModelSymbols'
 
 import Landing from './Components/Landing/Landing'
@@ -14,6 +14,7 @@ import Magazine from './Components/Magazine/Magazine'
 import About from './Components/About/About'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
+import NotFound from './Components/NotFound/NotFound'
 
 
 
@@ -24,21 +25,20 @@ function App() {
 
     const processData = (data) => {
         // console.log(data)
-
         let newArray = data[1].map((m) => {
             let temp = {}
             temp.name = m.name
             temp.avgPrice = m.avg_price
-            data[0].filter((x) => {
+            data[0].forEach((x) => {
                 if (x.Make_Name.toLowerCase() === m.name) {
                     // console.log(x.Make_Name.toLowerCase())
-                    temp.id = x.Make_ID
+                    return temp.id = x.Make_ID
                 }
             })
-            symbols.Symbols.filter((s) => {
+            symbols.Symbols.forEach((s) => {
                 if (s.name === m.name) {
                     // console.log(s.name)
-                    temp.imgUrl = s.symbolUrl
+                    return temp.imgUrl = s.symbolUrl
                 }
             })
             return temp
@@ -47,18 +47,15 @@ function App() {
         newArray.sort((a, b) => {
             return a.avgPrice - b.avgPrice
         })
-
         //priceCategory
-        newArray.forEach((c, i)=>{
+        newArray.forEach((c, i) => {
             c.priceRank = i
         })
         // console.log(newArray)
         setData(newArray)
-
     }
 
     const callApi = async () => {
-
         try {
             const result = await axios.get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json')
             const result2 = await axios.get('https://private-anon-65f39ae8d4-carsapi1.apiary-mock.com/manufacturers')
@@ -84,51 +81,43 @@ function App() {
 
 
     return <>
+        <BrowserRouter>
+            <Navbar />
+            {load ? <Landing /> : <>
 
-        {
-            load ? <Landing/> : <>
+                <Switch>
+                    {/*{this.state.data.map(item=>(*/}
+                    {/*    <Route path={"/products/" + item.id}>*/}
+                    {/*      <ProductDetail name={item.id}/>*/}
+                    {/*    </Route>*/}
+                    {/*))}*/}
+                    <Route exact path="/contact">
+                        <Contact />
+                    </Route>
+                    <Route exact path="/magazine">
+                        <Magazine />
+                    </Route>
+                    <Route exact path="/about">
+                        <About />
+                    </Route>
+                    <Route exact path="/engine">
+                        <Engine data={apiData} />
+                    </Route>
+                    <Route exact path="/home">
+                        <Home />
+                    </Route>
+                    <Route path="/">
+                        <NotFound />
+                    </Route>
+                </Switch>
 
-                <BrowserRouter>
+            </>}
 
-                    <Navbar/>
+            <Footer />
 
-
-                    <Switch>
-                        {/*{this.state.data.map(item=>(*/}
-                        {/*    <Route path={"/products/" + item.id}>*/}
-                        {/*      <ProductDetail name={item.id}/>*/}
-                        {/*    </Route>*/}
-                        {/*))}*/}
-                        <Route exact path="/contact">
-                            <Contact/>
-                        </Route>
-                        <Route exact path="/magazine">
-                            <Magazine/>
-                        </Route>
-                        <Route exact path="/about">
-                            <About/>
-                        </Route>
-                        <Route exact path="/engine">
-                            <Engine data={apiData}/>
-                        </Route>
-                        <Route exact path="/home">
-                            <Home/>
-                        </Route>
-                        {/*<Route path="/">*/}
-                        {/*  <NotFound />*/}
-                        {/*</Route>*/}
-                    </Switch>
-
-
-                    <Footer/>
-
-                </BrowserRouter>
-
-
-            </>
-        }
-
+        </BrowserRouter>
     </>
+
 }
 
 export default App;

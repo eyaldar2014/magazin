@@ -1,12 +1,23 @@
-import react from 'react'
+// import react from 'react'
 
-const Contact =(props)=>{
+import ImageHeader from '.././ImageHeader'
+
+const Contact = (props) => {
 
 
 
     return <>
-        <div className={'contact'}>
-            contact...
+        <div className={'contactContainer'}>
+
+            <div className={'contact'}>
+
+                <ImageHeader name='CONTACT US' img='contactBgImg'/>
+
+                <div className='contactBox'></div>
+
+
+            </div>
+
         </div>
 
     </>

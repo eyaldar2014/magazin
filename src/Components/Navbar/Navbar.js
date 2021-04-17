@@ -1,12 +1,11 @@
-import react from 'react'
+// import react from 'react'
+
 import { Link } from "react-router-dom";
 import { FiHome ,  } from "react-icons/fi";
 import { BiCar , BiNews } from "react-icons/bi";
 import { GrInfo , GrPhone } from "react-icons/gr";
 
-const Navbar =(props)=>{
-
-
+const Navbar =()=>{
 
     return <>
         <nav className={'navbarContainer'}>
