@@ -35,7 +35,6 @@ const Symbols = [
     {name: 'nissan', symbolUrl: 'https://www.carlogos.org/car-logos/nissan-logo-2013-700x700.png'},
     {name: 'buick', symbolUrl: 'https://www.carlogos.org/logo/Buick-logo-2002-2560x1440.png'},
     {name: 'jaguar', symbolUrl: 'https://www.carlogos.org/logo/Jaguar-logo-2012-1920x1080.png'},
-
 ]
 
 export default {Symbols}

@@ -10,9 +10,43 @@
   color: rgb(30, 113, 141);
 }
 
+/* Description */
+.Description{
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+  /* background: chartreuse; */
+}
+.Description h2{
+  margin-bottom: 20px;
+}
+.Description span{
+  color: rgb(91, 91, 99);
+}
+
+/* Button */
+.btn{
+  width: 150px;
+  height: 50px;
+  background: transparent;
+  border-radius: 20px;
+  color: rgb(30, 113, 141);
+  font-size: 1.2rem;
+  border-top: transparent;
+  border-bottom: transparent;
+}
+.btn:hover{
+  background: rgb(30, 113, 141);
+  color: white;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+/* middle title background horizintak line */
 .bgLine{
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .bgLine:before {
   border-top: 2px solid rgb(97, 84, 84);
@@ -67,6 +101,7 @@
 .navbarContainer{
   /* height: 100px; */
   /* width: 100vw; */
+  z-index: 1;
   min-width: 1000px;
   background: rgb(52, 63, 82);
   /* sticky */
@@ -202,11 +237,40 @@ display: flex;
   padding: 0 200px;
   /* background: aquamarine; */
 }
+.form{
+  padding: 100px;
+}
+.form h1{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.formBgImg{
+  height: 650px;
+  background: url("https://images.unsplash.com/photo-1466875603152-be5267bd180e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1366&q=80") no-repeat center center/ cover;
+}
 
-
-
-
-
+/* home */
+/* .home{} */
+.homeSection{
+  position: relative;
+  height: 700px;
+  min-width: 1000px;
+  padding: 0 200px;
+}
+.magazineHomeBgImg{
+  height: 500px;
+  background: url("https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1853&q=80") no-repeat center center/ cover;
+}
+.homeMagazineDescription{
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 150px);
+}
+.homeMagazineButton{
+  position: absolute;
+  top: 300px;
+  left: calc(50% - 75px);
+}
 
 
 
@@ -309,6 +373,13 @@ display: flex;
     top: -50px;
     left: calc(50% + 20px);
   }
+  .formBgImg{
+    height: 650px;
+    background: url("https://images.unsplash.com/photo-1536685712909-6ac3633e0812?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80") no-repeat center center/ cover;
+  }
+  .magazineHomeBgImg{
+    height: 350px;
+  }
 }
 @media only screen and (min-device-width: 1px) and (max-device-width: 800px) {
   .aboutContainer{
@@ -335,5 +406,12 @@ display: flex;
   .contactBox2{
     top: -50px;
     left: calc(50% + 20px);
+  }
+  .formBgImg{
+    height: 650px;
+    background: url("https://images.unsplash.com/photo-1536685712909-6ac3633e0812?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80") no-repeat center center/ cover;
+  }
+  .magazineHomeBgImg{
+    height: 350px;
   }
 }

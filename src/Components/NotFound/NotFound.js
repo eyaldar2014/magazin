@@ -18,7 +18,7 @@ const NotFound = (props) => {
          redirect home...
         </div>
     </> : <>
-      <div className={'notFound'}>
+      <div>
         <Redirect to="/home" />
       </div>
     </>}

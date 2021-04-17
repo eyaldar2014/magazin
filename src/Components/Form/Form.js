@@ -1,10 +1,14 @@
 // import react from 'react'
 
+import ImageHeader from '.././ImageHeader'
+
 const Form = ({ name, img }) => {
 
   return <>
     <div className="formContainer">
-      form to be here
+      <div className='form'>
+        <ImageHeader name='Tell Us Anything' img='formBgImg' />
+      </div>
     </div>
   </>
 }
