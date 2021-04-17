@@ -15,6 +15,7 @@ import About from './Components/About/About'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
 import NotFound from './Components/NotFound/NotFound'
+import Form from './Components/Form/Form'
 
 
 
@@ -102,6 +103,9 @@ function App() {
                     </Route>
                     <Route exact path="/engine">
                         <Engine data={apiData} />
+                    </Route>
+                    <Route exact path="/form">
+                        <Form />
                     </Route>
                     <Route exact path="/home">
                         <Home />
