@@ -1,9 +1,12 @@
+import symbols from './Components/ModelSymbols'
+
+
 import './App.css';
 
 import react from 'react'
 import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import symbols from './Components/ModelSymbols'
+
 
 import Landing from './Components/Landing/Landing'
 

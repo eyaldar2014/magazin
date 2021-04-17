@@ -1,6 +1,6 @@
 // import react from 'react'
 
-const Button = ({ name, myFunc, place }) => {
+const Button = ({ name, myFunc, place, color }) => {
 
 
   const btnFunc = () => {
@@ -9,7 +9,7 @@ const Button = ({ name, myFunc, place }) => {
 
   return <>
     <div className={place}>
-        <button className={'btn'} onClick={btnFunc}>{name}</button>
+        <button className={'btn ' + color} onClick={btnFunc}>{name}</button>
     </div>
   </>
 }

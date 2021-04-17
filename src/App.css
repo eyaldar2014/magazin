@@ -6,23 +6,45 @@
 .white{
   color: white
 }
+.darkBlue{
+  color: rgb(7, 66, 85);
+}
 .blue{
   color: rgb(30, 113, 141);
+}
+.grey{
+  color: rgb(91, 91, 99);
+}
+.green{
+  color: rgb(40, 107, 68);
+}
+.darkGrey{
+  color: rgb(28, 28, 31);
+}
+.black{
+  color: black;
+}
+.lightGrey{
+  color: rgb(231, 231, 231);
+}
+.darkOrange{
+  color: rgb(250, 99, 40);
 }
 
 /* Description */
 .Description{
   width: 300px;
-  height: 200px;
+  height: 240px;
   text-align: center;
   padding: 20px;
   /* background: chartreuse; */
 }
 .Description h2{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .Description span{
-  color: rgb(91, 91, 99);
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 /* Button */
@@ -31,14 +53,13 @@
   height: 50px;
   background: transparent;
   border-radius: 20px;
-  color: rgb(30, 113, 141);
   font-size: 1.2rem;
   border-top: transparent;
   border-bottom: transparent;
 }
 .btn:hover{
-  background: rgb(30, 113, 141);
-  color: white;
+  background: rgb(28, 28, 31);
+  color: rgb(0, 255, 21);
   opacity: 0.4;
   cursor: pointer;
 }
@@ -257,25 +278,79 @@ display: flex;
   min-width: 1000px;
   padding: 0 200px;
 }
-.magazineHomeBgImg{
-  height: 500px;
-  background: url("https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1853&q=80") no-repeat center center/ cover;
+.homePadding{
+  padding: 100px;
 }
-.homeMagazineDescription{
+.homePadding h1{
+  text-align: center;
+  margin-bottom: 50px;
+}
+/* main */
+.homeMainDescription{
   position: absolute;
   top: 150px;
   left: calc(50% - 150px);
 }
-.homeMagazineButton{
+.homeEngineButton{
   position: absolute;
-  top: 300px;
+  top: 380px;
   left: calc(50% - 75px);
 }
+.homeMagazineButton{
+  position: absolute;
+  top: 330px;
+  left: calc(50% - 75px);
+}
+.mainHomeBgImg{
+  height: 500px;
+  background: url("https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1853&q=80") no-repeat center center/ cover;
+}
+.mainHomeBgImg{
+  height: 500px;
+  opacity: 0.9;
+}
+.magazineHomeBgImg{
+  background: url("https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1853&q=80") no-repeat center center/ cover;
+}
+.engineHomeBgImg{
+  background: url("https://images.unsplash.com/photo-1458407421816-f2aa0e36768c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center center/ cover;
+}
+/* halves */
+.homeLeftDescription{
+  position: absolute;
+  top: 250px ;
+  left: 500px ;
+}
+.homeLeftBtn{
+  position: absolute;
+  top: 400px;
+  left: calc(500px + 75px);
+}
+.homeRightDescription{
+  position: absolute;
+  top: 250px;
+  right: 500px;
+}
+.homeRightBtn{
+  position: absolute;
+  top: 400px;
+  right: calc(500px + 75px);
+}
+.contactImageHome{
+  opacity: 0.8;
+  background: url("https://images.unsplash.com/photo-1512106475178-d4e2fffeb38e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center center/ cover;
+}
+.aboutImageHome{
+  opacity: 0.8;
+  background: url("https://images.unsplash.com/photo-1579762593131-b8945254345c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1422&q=80") no-repeat center center/ cover;
+}
 
-
-
-
-
+/* magazine */
+.magazine{
+  width: 100vw;
+  min-height: 700px;
+  background: lightgreen;
+}
 
 
 
@@ -294,14 +369,6 @@ display: flex;
   background: seagreen;
   border-bottom: 1px solid black;
 }
-
-/* magazine */
-.magazine{
-  width: 100vw;
-  min-height: 700px;
-  background: lightgreen;
-}
-
 /* car logos */
 .carLogoContainer{
   display: grid;
@@ -318,11 +385,6 @@ display: flex;
   height: 80px;
   padding: 10px;
 }
-
-
-
-
-
 
 
 
@@ -348,6 +410,25 @@ display: flex;
   .contactBox2{
     top: -50px;
     left: calc(50% + 100px);
+  }
+  .homeLeftDescription{
+    top: 150px ;
+    left: calc(50% - 150px) ;
+  }
+  .homeLeftBtn{
+    top: 280px;
+    left: calc(50% - 75px);
+  }
+  .homeRightDescription{
+    top: 400px;
+    left: calc(50% - 150px) ;
+  }
+  .homeRightBtn{
+    top: 530px;
+    left: calc(50% - 75px);
+  }
+  .homeEnd{
+    margin-bottom: 40px;
   }
 }
 @media only screen and (min-device-width: 801px) and (max-device-width: 1200px) {
@@ -377,8 +458,27 @@ display: flex;
     height: 650px;
     background: url("https://images.unsplash.com/photo-1536685712909-6ac3633e0812?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80") no-repeat center center/ cover;
   }
-  .magazineHomeBgImg{
+  .mainHomeBgImg{
     height: 350px;
+  }
+  .homeLeftDescription{
+    top: 150px ;
+    left: calc(50% - 150px) ;
+  }
+  .homeLeftBtn{
+    top: 280px;
+    left: calc(50% - 75px);
+  }
+  .homeRightDescription{
+    top: 400px;
+    left: calc(50% - 150px) ;
+  }
+  .homeRightBtn{
+    top: 530px;
+    left: calc(50% - 75px);
+  }
+  .homeEnd{
+    margin-bottom: 40px;
   }
 }
 @media only screen and (min-device-width: 1px) and (max-device-width: 800px) {
@@ -396,8 +496,9 @@ display: flex;
     width: 100%;
     height: 400px;
   }
-  .rightSpinner{
-    top: 100px;
+  @keyframes rightSpinner {
+    from {transform: translateX();}
+    to {transform: translateX(calc(1000px - 250px));}
   }
   .contactBox1{
     top: -50px;
@@ -411,7 +512,26 @@ display: flex;
     height: 650px;
     background: url("https://images.unsplash.com/photo-1536685712909-6ac3633e0812?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80") no-repeat center center/ cover;
   }
-  .magazineHomeBgImg{
+  .mainHomeBgImg{
     height: 350px;
+  }
+  .homeLeftDescription{
+    top: 150px ;
+    left: calc(50% - 150px) ;
+  }
+  .homeLeftBtn{
+    top: 280px;
+    left: calc(50% - 75px);
+  }
+  .homeRightDescription{
+    top: 400px;
+    left: calc(50% - 150px) ;
+  }
+  .homeRightBtn{
+    top: 530px;
+    left: calc(50% - 75px);
+  }
+  .homeEnd{
+    margin-bottom: 40px;
   }
 }

@@ -1,4 +1,3 @@
-
 const Symbols = [
     {name: 'chrysler', symbolUrl: 'https://www.carlogos.org/logo/Chrysler-logo-2010-1920x1080.png'},
     {name: 'honda', symbolUrl: 'https://www.carlogos.org/car-logos/honda-logo-1700x1150.png'},
@@ -37,4 +36,6 @@ const Symbols = [
     {name: 'jaguar', symbolUrl: 'https://www.carlogos.org/logo/Jaguar-logo-2012-1920x1080.png'},
 ]
 
-export default {Symbols}
+const symbols = {Symbols}
+
+export default symbols
