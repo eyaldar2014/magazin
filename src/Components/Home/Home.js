@@ -45,11 +45,14 @@ const Home = (props) => {
             <div className={'homePadding'}>
                 <ImageHeader name='Who Are We' img='' />
 
-                <Description img='contactImageHome' place='homeLeftDescription' title='Contact Us' spanColor='lightGrey' text='get in touch' />
-                <Button place="homeLeftBtn" name='Connect =>' myFunc={goToContact} color='darkOrange' />
+                <div className='descriptionContainer'>
+                    <Description img='contactImageHome' place='homeLeftDescription' title='Contact Us' spanColor='lightGrey' text='get in touch' />
+                    <Button place="homeLeftBtn" name='Connect =>' myFunc={goToContact} color='darkOrange' />
 
-                <Description img='aboutImageHome' place='homeRightDescription' title='About Us' spanColor='black' text='creation description' />
-                <Button place="homeRightBtn" name='Read =>' myFunc={goToAbout} color='darkOrange' />
+                    <Description img='aboutImageHome' place='homeRightDescription' title='About Us' spanColor='black' text='creation description' />
+                    <Button place="homeRightBtn" name='Read =>' myFunc={goToAbout} color='darkOrange' />
+                </div>
+                
             </div>
         </div>
         <div className='homeEnd'></div>

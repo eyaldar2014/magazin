@@ -9,6 +9,13 @@ const Form = ({ name, img }) => {
       <div className='form'>
         <ImageHeader name='Tell Us Anything' img='formBgImg' />
       </div>
+
+      <form>
+        
+
+
+      </form>
+
     </div>
   </>
 }

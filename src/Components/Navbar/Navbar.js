@@ -1,9 +1,9 @@
 // import react from 'react'
 
 import { Link } from "react-router-dom";
-import { FiHome ,  } from "react-icons/fi";
-import { BiCar , BiNews } from "react-icons/bi";
-import { GrInfo , GrPhone } from "react-icons/gr";
+import { FiHome } from "react-icons/fi";
+import { BiCar } from "react-icons/bi";
+import { GiPhone, GiBlackBook } from "react-icons/gi";
 
 const Navbar =()=>{
 
@@ -18,12 +18,9 @@ const Navbar =()=>{
                     <Link to="/engine" className="navItem"><BiCar /> Engine</Link>
                 </li>
                 <li>
-                    <Link to="/magazine" className="navItem"><BiNews /> Magazine</Link>
+                    <Link to="/about" className="navItem"><GiBlackBook /> About</Link>
                 </li>
-                <li>
-                    <Link to="/about" className="navItem"><GrInfo /> About</Link>
-                </li>
-                <li><Link to="/contact" className="navItem"><GrPhone /> Contact</Link>
+                <li><Link to="/contact" className="navItem"><GiPhone /> Contact</Link>
                 </li>
             </ul>
 

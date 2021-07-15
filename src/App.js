@@ -13,7 +13,6 @@ import Landing from './Components/Landing/Landing'
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
 import Engine from './Components/Engine/Engine'
-import Magazine from './Components/Magazine/Magazine'
 import About from './Components/About/About'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
@@ -97,9 +96,6 @@ function App() {
                     {/*))}*/}
                     <Route exact path="/contact">
                         <Contact />
-                    </Route>
-                    <Route exact path="/magazine">
-                        <Magazine />
                     </Route>
                     <Route exact path="/about">
                         <About />
