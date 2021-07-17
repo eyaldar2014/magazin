@@ -33,7 +33,7 @@ const Home = (props) => {
         </div>
 
         <div className='homeSection'>
-            <div className={'homePadding'}>
+            <div className='homePadding'>
                 <ImageHeader name='Magazine' img='mainHomeBgImg magazineHomeBgImg' />
                 <Description place='homeMainDescription' title='Everything About Cars' spanColor='grey' text='All the information, pictures and new of the amazing world of carmobiles.' />
                 <Button place="homeMagazineButton" name='Enter =>' myFunc={goToMagazine} color='darkOrange' />

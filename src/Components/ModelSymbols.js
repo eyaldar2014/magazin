@@ -1,5 +1,5 @@
-const Symbols = [
-    {name: 'chrysler', symbolUrl: 'https://www.carlogos.org/logo/Chrysler-logo-2010-1920x1080.png'},
+const symbols = [
+    {name: 'chrysler', symbolUrl: 'https://www.carlogos.org/logo/Chrysler-logo-1998-1920x1080.png'},
     {name: 'honda', symbolUrl: 'https://www.carlogos.org/car-logos/honda-logo-1700x1150.png'},
     {name: 'mercedes-benz', symbolUrl: 'https://www.carlogos.org/logo/Mercedes-Benz-logo-2011-1920x1080.png'},
     {name: 'ram', symbolUrl: 'https://www.carlogos.org/logo/RAM-logo-2009-1920x1080.png'},
@@ -34,8 +34,9 @@ const Symbols = [
     {name: 'nissan', symbolUrl: 'https://www.carlogos.org/car-logos/nissan-logo-2013-700x700.png'},
     {name: 'buick', symbolUrl: 'https://www.carlogos.org/logo/Buick-logo-2002-2560x1440.png'},
     {name: 'jaguar', symbolUrl: 'https://www.carlogos.org/logo/Jaguar-logo-2012-1920x1080.png'},
+    {name: 'alfa-romeo', symbolUrl: 'https://www.carlogos.org/logo/Alfa-Romeo-logo-2015-1920x1080.png'}
+    
 ]
 
-const symbols = {Symbols}
 
-export default symbols
+module.exports = { symbols }

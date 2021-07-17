@@ -11,8 +11,7 @@ const CarLogo = ({carData}) => {
     return <>
         <div>
             {!car? null : <>
-            <img src={car.imgUrl} alt={car.name} className={'carIcon'}/>
-            <h5>{car.name}</h5>
+            <img src={car.imgUrl} alt={car.name} className={'carIconHeader'}/>
             </>}
         </div>
 

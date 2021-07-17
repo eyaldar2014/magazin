@@ -1,16 +1,18 @@
 import react from 'react'
-
-import CarLogo from "../../CarLogo";
 import axios from "axios";
 
-const SecondSection = ({type}) => {
+import CarLogoHeader from "../../CarLogoHeader";
+import ImageHeader from "../../ImageHeader"
+
+
+const SecondSection = ({ type }) => {
 
     const [models, setModels] = react.useState()
     const [currentModels, setCurrentModels] = react.useState()
     const [car, setCar] = react.useState()
     const [search, setSearch] = react.useState("")
     const [year, setYear] = react.useState(2000)
-    const [yearForModel, setYearForModel] = react.useState()
+    // const [yearForModel, setYearForModel] = react.useState()
     const [chosenModel, setChosenModel] = react.useState()
 
     const callApi = async () => {
@@ -28,9 +30,10 @@ const SecondSection = ({type}) => {
     react.useEffect(() => {
         // console.log(type)
         setCar(type)
-        setYearForModel(null)
+        // setYearForModel(null)
         setCurrentModels(null)
         setSearch('')
+        // callApi()
     }, [type])
 
 
@@ -45,13 +48,13 @@ const SecondSection = ({type}) => {
     }
 
     const yearHandler = (e) => {
-            setYear(e.target.value)
+        setYear(e.target.value)
 
     }
 
     const chooseYear = (e) => {
         if (year > 1999 && year < 2021) {
-            setYearForModel(year)
+            // setYearForModel(year)
             setSearch('')
             if (type) {
                 callApi()
@@ -59,7 +62,7 @@ const SecondSection = ({type}) => {
         }
         else {
             setYear(2000)
-            setYearForModel(null)
+            // setYearForModel(null)
             setSearch('')
         }
     }
@@ -77,31 +80,50 @@ const SecondSection = ({type}) => {
 
         <div className={'sectionBody'}>
 
-            {!car ? null : <CarLogo carData={car}/>}
-            <label htmlFor="year-select">Choose a Year between 2000 to 2020: </label>
-            <input type='number' id={'year-select'} onChange={yearHandler} value={year} placeholder={'2000-2020'}
-                   min={2000} max={2020}/>
-            <input type='button' onClick={chooseYear} value={'click'}/>
-            <br/>
+            <div className='sectionPadding'>
+                <ImageHeader name='Select Year&Model' img='mainHomeBgImg engineSectionImg engineSecondSectionImg' />
+                <div className='sectionDescription'>
+                    <div className="sectionTwoContent">
 
-            {!yearForModel ? null : <>
+                        {!car ? <><h3 className="waitForType">Choose A Car Maker First</h3></> : <>
+                            <div className="sectionTwoLogo">
+                                <CarLogoHeader carData={car} />
+                            </div>
+                            <h3>Enter a Year between 2000 to 2020 </h3>
 
-                <label htmlFor="model-select">Choose a Model: </label>
-                <input type='search' onChange={searchHandler} value={search} placeholder={'search model'}/>
+                            <input type='number' id={'year-select'} onChange={yearHandler} value={year} placeholder={'2000-2020'}
+                                min={2000} max={2020} />
+                            <input type='button' onClick={chooseYear} value='Choose Year' />
+                            <br />
 
-                <select id="model-select" onChange={selectedModel}>
-                    <option value="non">--Please choose an option--</option>
-                    {!currentModels ? null : <>
-                        {currentModels.map((m, index) => {
-                            return <option key={index}
-                                           value={m.Model_Name.toLowerCase()}>{m.Model_Name.toLowerCase()}</option>
-                        })}
-                    </>}
-                </select>
+                            <h3> Choose a Model </h3>
+                            <input type='search' onChange={searchHandler} value={search} placeholder={'search model'} />
 
-                <input type='button' onClick={chooseModel} value={'choose this!'}/>
-            </>}
+                            <select id="model-select" onChange={selectedModel}>
+                                <option value="non">--Please choose an option--</option>
+                                {!currentModels ? null : <>
+                                    {currentModels.map((m, index) => {
+                                        return <option key={index}
+                                            value={m.Model_Name.toLowerCase()}>{m.Model_Name.toLowerCase()}</option>
+                                    })}
+                                </>}
+                            </select>
 
+                            <input type='button' onClick={chooseModel} value={'Choose Model'} />
+                        </>
+                        }
+
+
+
+
+                        {/* <label htmlFor="year-select">Enter a Year between 2000 to 2020 </label> */}
+
+
+
+
+                    </div>
+                </div>
+            </div>
         </div>
 
     </>

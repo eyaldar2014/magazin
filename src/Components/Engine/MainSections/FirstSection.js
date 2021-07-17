@@ -1,8 +1,9 @@
 import react from 'react'
 
 import CarLogo from "../../CarLogo";
+import ImageHeader from "../../ImageHeader"
 
-const FirstSection = ({data, enterType}) => {
+const FirstSection = ({ data, enterType }) => {
 
     const [cars, setData] = react.useState()
 
@@ -14,9 +15,9 @@ const FirstSection = ({data, enterType}) => {
     // console.log(data)
 
 
-    const chooseType =(e)=>{
+    const chooseType = (e) => {
         // console.log(e.target.alt)
-        let type = cars.filter(car=>car.name === e.target.alt)
+        let type = cars.filter(car => car.name === e.target.alt)
         enterType(type[0])
     }
 
@@ -25,24 +26,25 @@ const FirstSection = ({data, enterType}) => {
     return <>
 
         <div className={'sectionBody'}>
+            <div className='sectionPadding'>
 
-            enter your car or a car that you find interesting:
-            <br/>
+                <ImageHeader name='Choose A Car Maker' img='mainHomeBgImg engineSectionImg engineFirstSectionImg' />
 
-            <div className={'carLogoContainer'}>
-                {!cars ? null : <>
-                    {cars.map((c, index) => {
-                        return <button key={index} onClick={chooseType} className={'carLogo'}>
-                            <CarLogo carData={c}/>
-                        </button>
-                    })}
-                </>}
+                <div className='sectionDescription'>
 
+                    <div className={'carLogoContainer'}>
+                        {!cars ? null : <>
+                            {cars.map((c, index) => {
+                                return <button key={index} onClick={chooseType} className='carLogo'>
+                                    <CarLogo carData={c} />
+                                </button>
+                            })}
+                        </>}
 
+                    </div>
+                </div>
 
             </div>
-
-
         </div>
 
     </>

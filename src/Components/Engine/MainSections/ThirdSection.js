@@ -1,7 +1,8 @@
 import react from 'react'
 import CarLogo from "../../CarLogo";
+import ImageHeader from "../../ImageHeader";
 
-const ThirdSection = ({type, data, enterType}) => {
+const ThirdSection = ({ type, data, enterType }) => {
 
     const [cars, setCars] = react.useState()
     const [car, setCar] = react.useState()
@@ -11,7 +12,6 @@ const ThirdSection = ({type, data, enterType}) => {
     const [stylishCar, setStylishCar] = react.useState()
 
     react.useEffect(() => {
-        // console.log(type)
         setCars(data)
         setCar(type)
         if (car && cars) {
@@ -23,13 +23,13 @@ const ThirdSection = ({type, data, enterType}) => {
 
 
 
-    const setStylishCarFunc=()=>{
-        if (car.priceRank < 34) {
-            if(car.priceRank + 4 < 34){
+    const setStylishCarFunc = () => {
+        if (car.priceRank < 35) {
+            if (car.priceRank + 4 < 35) {
                 setStylishCar(cars[car.priceRank + 4])
             }
             else {
-                setStylishCar(cars[34])
+                setStylishCar(cars[35])
             }
         } else {
             setStylishCar(null)
@@ -38,7 +38,7 @@ const ThirdSection = ({type, data, enterType}) => {
 
 
     const samePlus = () => {
-        if (car.priceRank < 34) {
+        if (car.priceRank < 35) {
             setPlusCar(cars[car.priceRank + 1])
         } else {
             setPlusCar(null)
@@ -64,39 +64,42 @@ const ThirdSection = ({type, data, enterType}) => {
 
     return <>
         <div className={'sectionBody'}>
-            {!car ? null : <>
-                <CarLogo carData={car}/>
-                priceRank: {car.priceRank}
-                <br/>
-                your cars maker average price is : {car.avgPrice}
-                <br/>
-            </>}
-            <br/>
-            options : similar(different manufacturer but similar level) / newer(cheaper manufacturer) / moreStyle(and
-            older)
-            <br/><br/>
-            1 : get newer car on the same price by choosing a cheaper manufacturer (if exists). set manufacturer:
-            {!cheaperCar ? null : <button onClick={chooseType}><CarLogo carData={cheaperCar}/></button>}
+            <div className='sectionPadding'>
+                <ImageHeader name='A penny for your thoughts' img='mainHomeBgImg engineSectionImg engineThirdSectionImg' />
+                <div className='sectionDescription'>
+                    <div className={'sectionThreeContent'}>
 
-
-            <br/>
-            2 : change your car with a similar manufacturer on the same price range:
-            a little cheaper - {!cheaperCar ? null :
-            <button onClick={chooseType}><CarLogo carData={minusCar}/></button>}
-            <br/>
-            a little more expensive - {!plusCar ? null :
-            <button onClick={chooseType}><CarLogo carData={plusCar}/></button>}
-            <br/>
-
-
-            <br/>
-            3 : get a more stylish car, hopefully on the same price (but few years older..)
-            {!plusCar ? null :
-            <button onClick={chooseType}><CarLogo carData={stylishCar}/></button>}
-
-            <br/><br/><br/>
-            Modify year and model on the previous section !
-
+                        {!car ? <><h3 className="waitForType">Choose A Car Maker First</h3></> : <>
+                            <CarLogo carData={car} />
+                            <h5>priceRank: {car.priceRank}</h5>
+                            <h4>car's maker average price is : {car.avgPrice}$</h4>
+                            
+                            <div className="carOptionsContainer">
+                                <div>
+                                    <h4>much cheaper</h4>
+                                    {!cheaperCar ? null :
+                                        <button className='carLogo' onClick={chooseType}><CarLogo carData={cheaperCar} /></button>}
+                                </div>
+                                <div>
+                                <h4>a little cheaper</h4>
+                                    {!cheaperCar ? null :
+                                        <button className='carLogo' onClick={chooseType}><CarLogo carData={minusCar} /></button>}
+                                </div>
+                                <div>
+                                <h4>more expensive</h4>
+                                    {!plusCar ? null :
+                                        <button className='carLogo' onClick={chooseType}><CarLogo carData={plusCar} /></button>}
+                                </div>
+                                <div>
+                                <h4>much more expensive</h4>
+                                    {!plusCar ? null :
+                                        <button className='carLogo' onClick={chooseType}><CarLogo carData={stylishCar} /></button>}
+                                </div>
+                            </div>
+                        </>}
+                    </div>
+                </div>
+            </div>
         </div>
 
     </>

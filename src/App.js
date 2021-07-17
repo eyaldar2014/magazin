@@ -1,15 +1,10 @@
-import symbols from './Components/ModelSymbols'
-
-
 import './App.css';
 
 import react from 'react'
 import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-
 import Landing from './Components/Landing/Landing'
-
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
 import Engine from './Components/Engine/Engine'
@@ -19,6 +14,8 @@ import Footer from './Components/Footer/Footer'
 import NotFound from './Components/NotFound/NotFound'
 import Form from './Components/Form/Form'
 
+
+const { symbols } = require('./Components/ModelSymbols')
 
 
 function App() {
@@ -30,23 +27,33 @@ function App() {
         // console.log(data)
         let newArray = data[1].map((m) => {
             let temp = {}
-            temp.name = m.name
-            temp.avgPrice = m.avg_price
+            temp.name = m.make
+            temp.avgPrice = m.price
             data[0].forEach((x) => {
-                if (x.Make_Name.toLowerCase() === m.name) {
+                if (x.Make_Name.toLowerCase() === m.make) {
                     // console.log(x.Make_Name.toLowerCase())
                     return temp.id = x.Make_ID
                 }
             })
-            symbols.Symbols.forEach((s) => {
-                if (s.name === m.name) {
+            symbols.forEach((s) => {
+                if (s.name === m.make) {
                     // console.log(s.name)
                     return temp.imgUrl = s.symbolUrl
                 }
             })
+            // console.log(temp)
             return temp
         })
-        newArray = newArray.filter(c => c.id)
+        // console.log(newArray)
+        const idMemory = []
+        newArray = newArray.filter(c => {
+            if ( !idMemory.includes(c.id) ) {
+                idMemory.push(c.id)
+                return c
+            }
+            return null
+        })
+
         newArray.sort((a, b) => {
             return a.avgPrice - b.avgPrice
         })
@@ -61,7 +68,10 @@ function App() {
     const callApi = async () => {
         try {
             const result = await axios.get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json')
-            const result2 = await axios.get('https://private-anon-65f39ae8d4-carsapi1.apiary-mock.com/manufacturers')
+            const result2 = await axios.get('https://private-anon-056de5b2d3-carsapi1.apiary-mock.com/cars')
+            // https://private-anon-65f39ae8d4-carsapi1.apiary-mock.com/manufacturers
+            // console.log(result.data.Results)
+            // console.log(result2.data)
             let temp = []
             temp.push(result.data.Results)
             temp.push(result2.data)
