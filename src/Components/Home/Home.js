@@ -23,6 +23,7 @@ const Home = (props) => {
         {contact ? null : <Redirect to="/contact" />}
         {about ? null : <Redirect to="/about" />}
 
+
         <div className='homeSection'>
             <div className={'homePadding'}>
                 <ImageHeader name='Engine' img='mainHomeBgImg engineHomeBgImg' />
