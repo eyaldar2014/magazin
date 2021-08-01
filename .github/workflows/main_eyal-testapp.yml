@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'eyal-testapp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_07c4aab9c2ce4357b6956794c4b306fa }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_07879aee4a0f4cb585ba078c0c586248 }}
         package: .
