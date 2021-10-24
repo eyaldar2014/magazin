@@ -14,7 +14,6 @@ import Footer from './Components/Footer/Footer'
 import NotFound from './Components/NotFound/NotFound'
 import Form from './Components/Form/Form'
 
-
 const { symbols } = require('./Components/ModelSymbols')
 
 
@@ -23,31 +22,47 @@ function App() {
     const [load, setLoad] = react.useState(true)
     const [apiData, setData] = react.useState()
 
+    react.useEffect(() => {
+
+        callApi()
+
+        setTimeout(() => {
+            setLoad(false)
+        }, 2000)
+    }, []);
+
+
     const processData = (data) => {
         // console.log(data)
         let newArray = data[1].map((m) => {
             let temp = {}
-            temp.name = m.make
-            temp.avgPrice = m.price
+            temp.name = m.name
+            temp.avgPrice = m.avg_price
+
             data[0].forEach((x) => {
-                if (x.Make_Name.toLowerCase() === m.make) {
+                if (x.Make_Name.toLowerCase() === m.name) {
                     // console.log(x.Make_Name.toLowerCase())
                     return temp.id = x.Make_ID
                 }
             })
             symbols.forEach((s) => {
-                if (s.name === m.make) {
-                    // console.log(s.name)
+                if (s.name === m.name) {
                     return temp.imgUrl = s.symbolUrl
                 }
             })
             // console.log(temp)
             return temp
         })
-        // console.log(newArray)
+
+        // delete items with no 'id', meaning there is no match between the two api(s)
+        newArray.forEach((x, i) => {
+            if (!x.id) newArray.splice(i, 1)
+        })
+
+
         const idMemory = []
         newArray = newArray.filter(c => {
-            if ( !idMemory.includes(c.id) ) {
+            if (!idMemory.includes(c.id)) {
                 idMemory.push(c.id)
                 return c
             }
@@ -68,10 +83,10 @@ function App() {
     const callApi = async () => {
         try {
             const result = await axios.get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json')
-            const result2 = await axios.get('https://private-anon-056de5b2d3-carsapi1.apiary-mock.com/cars')
-            // https://private-anon-65f39ae8d4-carsapi1.apiary-mock.com/manufacturers
-            // console.log(result.data.Results)
-            // console.log(result2.data)
+
+            // json backup for this api exists in fixtures folder
+            let result2 = await axios.get('https://private-anon-aa07c7b287-carsapi1.apiary-mock.com/manufacturers')
+
             let temp = []
             temp.push(result.data.Results)
             temp.push(result2.data)
@@ -82,15 +97,6 @@ function App() {
             console.error(error)
         }
     }
-
-    react.useEffect(() => {
-
-        callApi()
-
-        setTimeout(() => {
-            setLoad(false)
-        }, 2000)
-    }, []);
 
 
     return <>
@@ -117,7 +123,7 @@ function App() {
                         <Form />
                     </Route>
                     <Route exact path="/">
-                    <Home />
+                        <Home />
                     </Route>
                     <Route path="/">
                         <NotFound />

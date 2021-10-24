@@ -18,6 +18,7 @@ const SecondSection = ({ type }) => {
     const callApi = async () => {
         try {
             const result = await axios.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/' + car.id + '/modelyear/' + year + '?format=json')
+            console.log(result)
             // console.log(result.data.Results[0].Model_Name)
             setModels(result.data.Results)
             setCurrentModels(result.data.Results)

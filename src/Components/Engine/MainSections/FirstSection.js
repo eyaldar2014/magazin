@@ -11,13 +11,24 @@ const FirstSection = ({ data, enterType }) => {
     react.useEffect(() => {
         setData(data)
     }, [data])
-
     // console.log(data)
-
+    
 
     const chooseType = (e) => {
+        // console.log(e.target)
+        // console.log(e.target.innerHTML)
         // console.log(e.target.alt)
-        let type = cars.filter(car => car.name === e.target.alt)
+        
+        let type
+        if (e.target.id) {
+            type = cars.filter(car => car.name === e.target.id)
+        }
+        else if (e.target.innerHTML) {
+            type = cars.filter(car => car.name === e.target.innerHTML)
+        }
+        else{
+            type = cars.filter(car => car.name === e.target.alt)
+        }
         enterType(type[0])
     }
 
@@ -35,7 +46,7 @@ const FirstSection = ({ data, enterType }) => {
                     <div className={'carLogoContainer'}>
                         {!cars ? null : <>
                             {cars.map((c, index) => {
-                                return <button key={index} onClick={chooseType} className='carLogo'>
+                                return <button key={index} onClick={chooseType} className='carLogo border'  id={c.name}>
                                     <CarLogo carData={c} />
                                 </button>
                             })}
